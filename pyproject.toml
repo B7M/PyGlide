@@ -1,0 +1,59 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.include]
+include = [".example/**"]
+
+[project]
+name = "lispi"
+version = "0.0.4"
+authors = [
+  { name="B7M", email="ibsnetwork001@gmail.com" },
+]
+license = { file = "LICENSE" }
+description = "A simple python package for generating live notebooks where you can write code and run it in real time."
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "jupyter",
+    "jupyterlab",
+    "nbconvert",
+    "nbformat",
+    "gtts",
+    "click",
+    'tomli; python_version < "3.11"',]
+keywords = [
+    "notebook",
+    "live",
+    "code",
+    "py-scripts"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/B7M/lispi"
+
+[project.scripts]
+lispi = "lispi.__main__:main"
+
+
+[tool.bumpver]
+current_version = "0.0.4"
+version_pattern = "MAJOR.MINOR.PATCH[PYTAGNUM]"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = true
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'version = "{version}"',
+]
+"README.md" = [
+    "{version}",
+    "{pep440_version}",
+]
