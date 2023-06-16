@@ -13,19 +13,32 @@ pip install lispi
 ```
 
 ## Usage
+### Command Line Interface
+To use lispi, in your terminal follow these steps:
+After installing the package, you can use the `lispi` command to convert your Jupyter notebook into interactive slides. In your terminal, navigate to the folder containing the notebooks and run the following command:
 
-To use lispi, follow these steps:
+```lispi```
 
-1. Import the `lispi` class from the package:
+Upon running the command, the package will prompt you to enter the path to your Jupyter notebook file. Enter the name of the file press enter. The package will convert the Jupyter notebook into interactive slides and save the output HTML file in the output folder in the same directory as html file and audio file folder.
+
+### Python
+If you want to use lispi in your Python code, you can import the package and use it as a library. To use lispi, in python follow these steps:
+
+1. Import the `Gen` class from the package:
 
    ```python
-    import lispi
+   import lispi
+   ```
+   or 
+
+   ```python
+    from lispi import *
    ```
 
-2. Create an instance of the `InteractiveSlidesGenerator` class:
+2. Create an instance of the `Interactive Slides Generator` class:
 
    ```python
-   generator = lispi()
+   generator = lispi.Gen
    ```
 
 3. Specify the Jupyter notebook file you want to convert:
@@ -37,10 +50,10 @@ To use lispi, follow these steps:
 4. Generate the interactive slides:
 
    ```python
-   generator.generate_slides(notebook_file)
+   generator(notebook_file)
    ```
 
-5. The package will convert the Jupyter notebook into interactive slides and save the output HTML file.
+5. The package will convert the Jupyter notebook into interactive slides and save the output HTML file in the output folder in the same directory as html file and audio file folder.
 
 ## Configuration
 
@@ -60,19 +73,19 @@ generator = lispi(
 
 ## Examples
 
-Here are a few examples demonstrating the usage of `lispi`:
+Here is an example that comes with the package. To run the example, in your terminal or python code provide 'original_example' as the file name.
 
 ```python
-from lispi import lispi
+import lispi
 
 # Create an instance of the lispi class
-generator = lispi()
+generator = lispi.Gen
 
-# Specify the Jupyter notebook file
-notebook_file = "path/to/your/notebook.ipynb"
+# Specify the example notebook file
+notebook_file = "original_example"
 
 # Generate the interactive slides
-generator.generate_slides(notebook_file)
+generator(notebook_file)
 ```
 
 ## Conclusion
