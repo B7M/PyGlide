@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Lispi (Educational Slide Studio) is a Python package that provides a convenient way to convert Jupyter notebooks into interactive slides. It allows users to create engaging presentations with interactive elements directly from the slides.
+`lispi` (Learning Interactive Slides and PIthon) is a Python package that provides a convenient way to convert Jupyter notebooks into interactive slides. It allows users to create engaging presentations with interactive elements directly from the slides.
 
 ## Installation
 

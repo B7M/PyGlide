@@ -12,7 +12,7 @@ authors = [
   { name="B7M", email="ibsnetwork001@gmail.com" },
 ]
 license = { file = "LICENSE" }
-description = "A simple python package for generating live notebooks where you can write code and run it in real time."
+description = "`lispi` (Learning Interactive Slides and PIthon) is a python package for generating live notebooks where you can learn the content by listening to and reading from the slides at the same time you can write and execute yourown code from the slides in real time."
 readme = "README.md"
 requires-python = ">=3.7"
 dependencies = [
