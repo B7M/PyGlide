@@ -11,4 +11,4 @@ from . import revealjs_template
 from . import lispi
 from .lispi import Gen
 
-__version__ = "0.0.7"
+__version__ = "0.0.8"

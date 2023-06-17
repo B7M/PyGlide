@@ -6,6 +6,20 @@
 
 ## Installation
 
+### Install from GitHub files
+To install `lispi` package, you can clone the repository from GitHub. Open your terminal and run the following command:
+
+```
+git clone https://github.com/B7M/lispi.git
+```
+Navigate to the directory containing the repository and run the following command:
+
+```
+pip install dist/lispi-0.0.8-py3-none-any.whl
+```
+
+
+### Install from PyPI
 To install `lispi` package, you can use pip, the Python package installer. Open your terminal and run the following command:
 
 ```
