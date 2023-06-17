@@ -7,7 +7,7 @@ include = [".example/**"]
 
 [project]
 name = "lispi"
-version = "0.0.5"
+version = "0.0.7"
 authors = [
   { name="B7M", email="ibsnetwork001@gmail.com" },
 ]
@@ -42,7 +42,7 @@ lispi = "lispi.__main__:main"
 
 
 [tool.bumpver]
-current_version = "0.0.5"
+current_version = "0.0.7"
 version_pattern = "MAJOR.MINOR.PATCH[PYTAGNUM]"
 commit_message = "bump version {old_version} -> {new_version}"
 commit = true
