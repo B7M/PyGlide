@@ -2,12 +2,12 @@
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.hatch.include]
-include = [".example/**"]
+[tool.hatch.build.targets.wheel]
+packages = ["src/lispi"]
 
 [project]
 name = "lispi"
-version = "0.0.8"
+version = "0.0.9"
 authors = [
   { name="B7M", email="ibsnetwork001@gmail.com" },
 ]
@@ -42,7 +42,7 @@ lispi = "lispi.__main__:main"
 
 
 [tool.bumpver]
-current_version = "0.0.8"
+current_version = "0.0.9"
 version_pattern = "MAJOR.MINOR.PATCH[PYTAGNUM]"
 commit_message = "bump version {old_version} -> {new_version}"
 commit = true

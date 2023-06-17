@@ -19,14 +19,16 @@ class Gen:
             subprocess.run(["jupyter", "nbconvert", _index+".ipynb", "--to", "slides"])
             slideEdit._ess(_index)
             examples_dir=os.getcwd()
-            self.houesekeeping(examples_dir)
+            if not os.path.exists(os.path.join(os.getcwd(), 'output')):
+                os.makedirs(os.path.join(os.getcwd(), 'output'))
+            self.houesekeeping(_index,examples_dir)
         elif _index=="original_example":
             examples_dir=Showcase(_index).get_file()
             text2audio.text2audio(examples_dir + "/original_example.ipynb")
             revealjs_template.convert('nbconvert')
             subprocess.run(["jupyter", "nbconvert", examples_dir+"/original_example.ipynb", "--to", "slides"])
             slideEdit._ess("original_example")
-            self.houesekeeping(examples_dir)
+            self.houesekeeping(_index,examples_dir)
         else:
             print("\n")
             print(f"\"{_index}.ipynb\" not found!")
@@ -34,9 +36,9 @@ class Gen:
             print("Make sure you have the notebook and try again!")
             print("*********************************************")
     
-    def houesekeeping(self, examples_dir):
+    def houesekeeping(self, index,examples_dir):
         self.examples_dir=examples_dir
-        source_file = os.path.join(examples_dir, 'original_example_lispi.html')
+        source_file = os.path.join(examples_dir, index+'_lispi.html')
         destination_folder = "./output"
         _files = os.listdir(destination_folder)
         for f in _files:
@@ -47,9 +49,10 @@ class Gen:
             elif os.path.isdir(item):
                 shutil.rmtree(item)
                 
-        os.remove("original_example.slides.html")
+        os.remove(index+".slides.html")
         shutil.move(source_file, destination_folder)
-        shutil.move("original_example.ipynb",destination_folder)
+        if self.index=="original_example":
+            shutil.move("original_example.ipynb",destination_folder)
         shutil.move(os.path.join(examples_dir, 'slides_audios'), destination_folder)
             
             
@@ -57,7 +60,7 @@ class Showcase:
     def __init__(self, index):
         self._name = index
     def get_file(self):
-        examples_dir = pkg_resources.resource_filename('lispi', '../../example/original_example.ipynb')
+        examples_dir = pkg_resources.resource_filename('lispi', 'example/original_example.ipynb')
         if not os.path.exists(os.path.join(os.getcwd(), 'output')):
             os.makedirs(os.path.join(os.getcwd(), 'output'))
         shutil.copy(examples_dir, os.getcwd())
