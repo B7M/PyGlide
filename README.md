@@ -31,6 +31,21 @@ To install `lispi` package, you can use pip, the Python package installer. Open 
 ```
 pip install lispi
 ```
+## Configuration
+
+Lispi provides several configuration options to customize the output slides. You can pass these options as arguments when creating an instance of the `lispi` class. Here are the available configuration options:
+
+- `audio`: Specify if you wish the output without audio (default: "unmute").
+- `output_file`: Specify the output file path for the generated slides (default: "output.html").
+
+Example:
+
+```python
+generator = lispi(
+    audio="unmute",
+    output_file="path/to/output/slides.html"
+)
+```
 
 ## Usage
 ### Command Line Interface
@@ -39,7 +54,7 @@ After installing the package, you can use the `lispi` command to convert your Ju
 
 ```lispi```
 
-Upon running the command, the package will prompt you to enter the path to your Jupyter notebook file. Enter the name of the file press enter. The package will convert the Jupyter notebook into interactive slides and save the output HTML file in the output folder in the same directory as html file and audio file folder.
+Upon running the command, the package will prompt you with help text to show you how you can use it. Enter the name of the file press enter. The package will convert the Jupyter notebook into interactive slides and save the output HTML file in the output folder in the same directory as html file and audio file folder. If you wish to convert the notebook named `original_example.ipynb`, you will enter `original_example` and press enter. If you wish to convert the notebook without audio, you can enter `lispi -m original_example` and press enter.
 
 ### Python
 If you want to use lispi in your Python code, you can import the package and use it as a library. To use lispi, in python follow these steps:
@@ -75,25 +90,27 @@ If you want to use lispi in your Python code, you can import the package and use
 
 5. The package will convert the Jupyter notebook into interactive slides and save the output HTML file in the output folder in the same directory as html file and audio file folder.
 
-## Configuration
 
-Lispi provides several configuration options to customize the output slides. You can pass these options as arguments when creating an instance of the `lispi` class. Here are the available configuration options:
-
-- `audio`: Specify if you wish the output without audio (default: "unmute").
-- `output_file`: Specify the output file path for the generated slides (default: "output.html").
-
-Example:
-
-```python
-generator = lispi(
-    audio="unmute",
-    output_file="path/to/output/slides.html"
-)
-```
 
 ## Examples
 
 Here is an example that comes with the package. To run the example, in your terminal or python code provide 'original_example' as the file name.
+
+(with audio)
+```bash 
+lispi original_example
+```
+or
+
+```bash
+lispi -i original_example
+```
+
+(without audio)
+```bash
+lispi -m original_example
+```
+And in python code:
 
 ```python
 import lispi
