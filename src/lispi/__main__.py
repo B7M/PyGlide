@@ -3,7 +3,7 @@ import subprocess
 import jupyter
 import shutil
 import pkg_resources
-import lispi
+import lispi 
 from lispi import *
 
 def main():
