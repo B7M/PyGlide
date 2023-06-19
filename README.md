@@ -1,4 +1,4 @@
-# Lispi Documentation
+# LISPI Documentation
 
 ## Introduction
 
