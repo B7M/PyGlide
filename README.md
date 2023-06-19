@@ -21,7 +21,7 @@ python -m build
 ```
 Once the build file is created, run the following command to install the package:
 ```
-pip install dist/lispi-0.0.8-py3-none-any.whl
+pip install dist/lispi-0.0.9-py3-none-any.whl
 ```
 
 
