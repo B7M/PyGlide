@@ -5,6 +5,7 @@ import pkg_resources
 import lispi.text2audio as text2audio
 import lispi.revealjs_template as revealjs_template
 import lispi.slideEdit as slideEdit
+import lispi.prompt as prom
 
 class Gen:
     def __init__(self,index):
@@ -17,6 +18,7 @@ class Gen:
             text2audio.text2audio(_index+".ipynb")
             revealjs_template.convert('nbconvert')
             subprocess.run(["jupyter", "nbconvert", _index+".ipynb", "--to", "slides"])
+            prom.prompt(_index)
             slideEdit._ess(_index)
             examples_dir=os.getcwd()
             if not os.path.exists(os.path.join(os.getcwd(), 'output')):
@@ -27,6 +29,7 @@ class Gen:
             text2audio.text2audio(examples_dir + "/original_example.ipynb")
             revealjs_template.convert('nbconvert')
             subprocess.run(["jupyter", "nbconvert", examples_dir+"/original_example.ipynb", "--to", "slides"])
+            prom.prompt(_index)
             slideEdit._ess("original_example")
             self.houesekeeping(_index,examples_dir)
         else:

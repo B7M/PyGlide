@@ -7,6 +7,7 @@ import pkg_resources
 import lispi.text2audio as text2audio
 import lispi.revealjs_template as revealjs_template
 import lispi.slideEdit as slideEdit
+import lispi.prompt as prom
 import lispi
 
 def main():
@@ -14,9 +15,11 @@ def main():
     parser.add_argument('-v','--version', help='Display the version of LISPI', action='version', version=f'LISPI version {lispi.__version__ }')
     parser.add_argument('filename',help='Pass the file name without extension', nargs='?')
     parser.add_argument('-m','--mute', help='Mute the audio', action='store_true')
+    parser.add_argument('-p','--dPrompt', help='Disable prompt window', action='store_true')
     parser.add_argument('-i', help='The file name without extension', action='store', dest='input')
     args=parser.parse_args()
     mute=args.mute
+    prompt=args.dPrompt
         
     if args.input is None and not args.filename:
         parser.print_help()
@@ -63,7 +66,10 @@ def main():
             text2audio.text2audio(index+".ipynb")
         revealjs_template.convert('nbconvert')
         subprocess.run(["jupyter", "nbconvert", index+".ipynb", "--to", "slides"])
+        if not prompt:
+            prom.prompt(index)
         slideEdit._ess(index)
+        prompt.prompt(index)
         examples_dir=os.getcwd()
         if not os.path.exists(os.path.join(os.getcwd(), 'output')):
                 os.makedirs(os.path.join(os.getcwd(), 'output'))
@@ -74,6 +80,8 @@ def main():
             text2audio.text2audio(examples_dir + "/original_example.ipynb")
         revealjs_template.convert('nbconvert')
         subprocess.run(["jupyter", "nbconvert", examples_dir+"/original_example.ipynb", "--to", "slides"])
+        if prompt:
+            prom.prompt("original_example")
         slideEdit._ess("original_example")
         houesekeeping(examples_dir,index,mute)
     else:
