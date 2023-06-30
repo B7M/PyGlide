@@ -12,13 +12,15 @@ class Gen:
         self.index = index
         self.lispi()
     
-    def lispi(self):
+    def lispi(self,audio=True,aI_assistant=True):
         _index=self.index
         if os.path.isfile(_index+".ipynb"):
-            text2audio.text2audio(_index+".ipynb")
+            if audio:
+                text2audio.text2audio(_index+".ipynb")
             revealjs_template.convert('nbconvert')
             subprocess.run(["jupyter", "nbconvert", _index+".ipynb", "--to", "slides"])
-            prom.prompt(_index)
+            if aI_assistant:
+                prom.prompt(_index)
             slideEdit._ess(_index)
             examples_dir=os.getcwd()
             if not os.path.exists(os.path.join(os.getcwd(), 'output')):
@@ -26,10 +28,12 @@ class Gen:
             self.houesekeeping(_index,examples_dir)
         elif _index=="original_example":
             examples_dir=Showcase(_index).get_file()
-            text2audio.text2audio(examples_dir + "/original_example.ipynb")
+            if audio:
+                text2audio.text2audio(examples_dir + "/original_example.ipynb")
             revealjs_template.convert('nbconvert')
             subprocess.run(["jupyter", "nbconvert", examples_dir+"/original_example.ipynb", "--to", "slides"])
-            prom.prompt(_index)
+            if aI_assistant:
+                prom.prompt(_index)
             slideEdit._ess("original_example")
             self.houesekeeping(_index,examples_dir)
         else:

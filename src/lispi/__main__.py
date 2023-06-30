@@ -80,7 +80,7 @@ def main():
             text2audio.text2audio(examples_dir + "/original_example.ipynb")
         revealjs_template.convert('nbconvert')
         subprocess.run(["jupyter", "nbconvert", examples_dir+"/original_example.ipynb", "--to", "slides"])
-        if prompt:
+        if not prompt:
             prom.prompt("original_example")
         slideEdit._ess("original_example")
         houesekeeping(examples_dir,index,mute)
