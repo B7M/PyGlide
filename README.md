@@ -19,10 +19,10 @@ Make the build file:
 ```
 python -m build
 ```
-Once the build file is created successfully, you will see a folder named `dist` in the directory which contains `.whl` and '.tar.gz'. The name of the file will be the {package name}-{version number}-{py3-none-any.whl}. At this point run `pip install dist/{the .whl file}` command to install the package, here is an example of installing the package with `version 0.0.10`:
+Once the build file is created successfully, you will see a folder named `dist` in the directory which contains `.whl` and '.tar.gz'. The name of the file will be the {package name}-{version number}-{py3-none-any.whl}. At this point run `pip install dist/{the .whl file}` command to install the package, here is an example of installing the package with `version 0.0.3`:
 
 ```
-pip install dist/pyglide-0.0.2-py3-none-any.whl
+pip install dist/pyglide-0.0.3-py3-none-any.whl
 ```
 
 
