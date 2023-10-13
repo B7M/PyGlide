@@ -14,7 +14,8 @@ def text2audio(example_file_path):
          
         for cell in nb['cells']:
             if cell['metadata']:
-                
+                if cell.get('cell_type') == 'code':
+                    continue
                 if cell['metadata']['slideshow']['slide_type'] == 'slide' or cell['metadata']['slideshow']['slide_type'] == 'subslide':
                     mp3name = ''.join([char for char in cell['source'][0] if char in source])
                     

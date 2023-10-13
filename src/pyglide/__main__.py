@@ -54,14 +54,18 @@ def main():
                     os.remove(item)
                 elif os.path.isdir(item):
                     shutil.rmtree(item)
-            shutil.move(os.path.join(examples_dir, 'slides_audios'), destination_folder)
+            if os.path.exists(os.path.join(examples_dir, 'slides_audios')):
+                shutil.move(os.path.join(examples_dir, 'slides_audios'), destination_folder)
         
         os.remove(index+".slides.html")
+        os.remove(index+".ipynb")
         shutil.move(source_file, destination_folder)
         if index=="original_example":
             shutil.move("original_example.ipynb",destination_folder)
         
     if os.path.isfile(index+".ipynb"):
+        shutil.copy(index+".ipynb", index+"_tmp.ipynb")
+        index=index+"_tmp"
         if not mute:
             text2audio.text2audio(index+".ipynb")
         revealjs_template.convert('nbconvert')
@@ -69,7 +73,6 @@ def main():
         if not prompt:
             prom.prompt(index)
         slideEdit._ess(index)
-        prompt.prompt(index)
         examples_dir=os.getcwd()
         if not os.path.exists(os.path.join(os.getcwd(), 'output')):
                 os.makedirs(os.path.join(os.getcwd(), 'output'))
