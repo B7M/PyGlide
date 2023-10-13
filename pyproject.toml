@@ -3,16 +3,16 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/lispi"]
+packages = ["src/pyglide"]
 
 [project]
-name = "lispi"
-version = "0.0.10"
+name = "pyglide"
+version = "0.0.02"
 authors = [
   { name="B7M", email="ibsnetwork001@gmail.com" },
 ]
 license = { file = "LICENSE" }
-description = "`lispi` (Learning Interactive Slides and PIthon) is a python package for generating live notebooks where you can learn the content by listening to and reading from the slides at the same time you can write and execute yourown code from the slides in real time."
+description = "`PyGlide` (Python Guided Learning through Interactive Digital Education) is a python package for generating live notebooks where you can learn the content by listening to and reading from the slides at the same time you can write and execute yourown code from the slides in real time."
 readme = "README.md"
 requires-python = ">=3.7"
 dependencies = [
@@ -35,14 +35,14 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/B7M/lispi"
+Homepage = "https://github.com/B7M/pyglide"
 
 [project.scripts]
-lispi = "lispi.__main__:main"
+pyglide = "pyglide.__main__:main"
 
 
 [tool.bumpver]
-current_version = "0.0.10"
+current_version = "0.0.02"
 version_pattern = "MAJOR.MINOR.PATCH[PYTAGNUM]"
 commit_message = "bump version {old_version} -> {new_version}"
 commit = true
@@ -57,4 +57,4 @@ push = true
     "{version}",
     "{pep440_version}",
 ]
-"src/lispi/__init__.py" = ["{version}"]
+"src/pyglide/__init__.py" = ["{version}"]

@@ -2,17 +2,17 @@ import os
 import subprocess
 import shutil
 import pkg_resources
-import lispi.text2audio as text2audio
-import lispi.revealjs_template as revealjs_template
-import lispi.slideEdit as slideEdit
-import lispi.prompt as prom
+import pyglide.text2audio as text2audio
+import pyglide.revealjs_template as revealjs_template
+import pyglide.slideEdit as slideEdit
+import pyglide.prompt as prom
 
 class Gen:
     def __init__(self,index):
         self.index = index
-        self.lispi()
+        self.pyglide()
     
-    def lispi(self,audio=True,aI_assistant=True):
+    def pyglide(self,audio=True,aI_assistant=True):
         _index=self.index
         if os.path.isfile(_index+".ipynb"):
             if audio:
@@ -45,7 +45,7 @@ class Gen:
     
     def houesekeeping(self, index,examples_dir):
         self.examples_dir=examples_dir
-        source_file = os.path.join(examples_dir, index+'_lispi.html')
+        source_file = os.path.join(examples_dir, index+'_pyglide.html')
         destination_folder = "./output"
         _files = os.listdir(destination_folder)
         for f in _files:
@@ -67,7 +67,7 @@ class Showcase:
     def __init__(self, index):
         self._name = index
     def get_file(self):
-        examples_dir = pkg_resources.resource_filename('lispi', 'example/original_example.ipynb')
+        examples_dir = pkg_resources.resource_filename('pyglide', 'example/original_example.ipynb')
         if not os.path.exists(os.path.join(os.getcwd(), 'output')):
             os.makedirs(os.path.join(os.getcwd(), 'output'))
         shutil.copy(examples_dir, os.getcwd())

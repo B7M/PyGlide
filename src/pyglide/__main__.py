@@ -4,15 +4,15 @@ import subprocess
 import argparse
 import shutil
 import pkg_resources
-import lispi.text2audio as text2audio
-import lispi.revealjs_template as revealjs_template
-import lispi.slideEdit as slideEdit
-import lispi.prompt as prom
-import lispi
+import pyglide.text2audio as text2audio
+import pyglide.revealjs_template as revealjs_template
+import pyglide.slideEdit as slideEdit
+import pyglide.prompt as prom
+import pyglide
 
 def main():
     parser = argparse.ArgumentParser(description=None)
-    parser.add_argument('-v','--version', help='Display the version of LISPI', action='version', version=f'LISPI version {lispi.__version__ }')
+    parser.add_argument('-v','--version', help='Display the version of PyGlide', action='version', version=f'PyGlide version {pyglide.__version__ }')
     parser.add_argument('filename',help='Pass the file name without extension', nargs='?')
     parser.add_argument('-m','--mute', help='Mute the audio', action='store_true')
     parser.add_argument('-p','--dPrompt', help='Disable prompt window', action='store_true')
@@ -35,7 +35,7 @@ def main():
         def __init__(self, index):
             self._name = index
         def get_file(self):
-            examples_dir = pkg_resources.resource_filename('lispi', 'example/original_example.ipynb')
+            examples_dir = pkg_resources.resource_filename('pyglide', 'example/original_example.ipynb')
             if not os.path.exists(os.path.join(os.getcwd(), 'output')):
                 os.makedirs(os.path.join(os.getcwd(), 'output'))
             shutil.copy(examples_dir, os.getcwd())
@@ -43,7 +43,7 @@ def main():
             return self.examples_dir
     
     def houesekeeping(examples_dir,index,mute):
-        source_file = os.path.join(examples_dir,index+'_lispi.html')
+        source_file = os.path.join(examples_dir,index+'_pyglide.html')
         destination_folder = "./output"
         if not mute:
             _files = os.listdir(destination_folder)

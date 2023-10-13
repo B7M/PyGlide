@@ -155,5 +155,5 @@ def _ess(notebook_file_name):
     return soup
         
   _html = str(codePage(soup))
-  with open(notebook_file_name+'_lispi.html', 'w') as file:
+  with open(notebook_file_name+'_pyglide.html', 'w') as file:
       file.write(_html)

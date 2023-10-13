@@ -1,4 +1,4 @@
 .DS_Store
-src/lispi/__pycache__/*
+src/pyglide/__pycache__/*
 dist/*
 **/.DS_Store
