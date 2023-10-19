@@ -58,10 +58,11 @@ def main():
                 shutil.move(os.path.join(examples_dir, 'slides_audios'), destination_folder)
         
         os.remove(index+".slides.html")
-        os.remove(index+".ipynb")
         shutil.move(source_file, destination_folder)
         if index=="original_example":
             shutil.move("original_example.ipynb",destination_folder)
+        else:
+            os.remove(index+".ipynb")
         
     if os.path.isfile(index+".ipynb"):
         shutil.copy(index+".ipynb", index+"_tmp.ipynb")
