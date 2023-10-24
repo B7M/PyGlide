@@ -18,7 +18,7 @@ class Gen:
             if audio:
                 text2audio.text2audio(_index+".ipynb")
             revealjs_template.convert('nbconvert')
-            subprocess.run(["jupyter", "nbconvert", _index+".ipynb", "--to", "slides"])
+            subprocess.run(["jupyter", "nbconvert", _index+".ipynb", "--to", "slides","--SlidesExporter.reveal_theme=solarized"])
             if aI_assistant:
                 prom.prompt(_index)
             slideEdit._ess(_index)

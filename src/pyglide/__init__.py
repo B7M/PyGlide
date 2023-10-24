@@ -13,4 +13,4 @@ from . import prompt
 from . import pyglide
 from .pyglide import Gen
 
-__version__ = "0.0.05"
+__version__ = "0.0.06"

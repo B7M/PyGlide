@@ -17,9 +17,11 @@ def main():
     parser.add_argument('-m','--mute', help='Mute the audio', action='store_true')
     parser.add_argument('-p','--dPrompt', help='Disable prompt window', action='store_true')
     parser.add_argument('-i', help='The file name without extension', action='store', dest='input')
+    parser.add_argument('-t', help='The theme of the out', action='store', dest='theme')
     args=parser.parse_args()
     mute=args.mute
     prompt=args.dPrompt
+    theme=args.theme
         
     if args.input is None and not args.filename:
         parser.print_help()
@@ -63,14 +65,17 @@ def main():
             shutil.move("original_example.ipynb",destination_folder)
         else:
             os.remove(index+".ipynb")
-        
+    
+    if not theme:
+            theme="solarized"
+            
     if os.path.isfile(index+".ipynb"):
         shutil.copy(index+".ipynb", index+"_tmp.ipynb")
         index=index+"_tmp"
         if not mute:
             text2audio.text2audio(index+".ipynb")
         revealjs_template.convert('nbconvert')
-        subprocess.run(["jupyter", "nbconvert", index+".ipynb", "--to", "slides"])
+        subprocess.run(["jupyter", "nbconvert", index+".ipynb", "--to", "slides","--SlidesExporter.reveal_theme="+theme,"--SlidesExporter.reveal_scroll=True"])
         if not prompt:
             prom.prompt(index)
         slideEdit._ess(index)
@@ -83,7 +88,7 @@ def main():
         if not mute:
             text2audio.text2audio(examples_dir + "/original_example.ipynb")
         revealjs_template.convert('nbconvert')
-        subprocess.run(["jupyter", "nbconvert", examples_dir+"/original_example.ipynb", "--to", "slides"])
+        subprocess.run(["jupyter", "nbconvert", examples_dir+"/original_example.ipynb", "--to", "slides","--SlidesExporter.reveal_theme="+theme,"--SlidesExporter.reveal_scroll=True"])
         if not prompt:
             prom.prompt("original_example")
         slideEdit._ess("original_example")
