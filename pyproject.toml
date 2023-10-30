@@ -7,7 +7,7 @@ packages = ["src/pyglide"]
 
 [project]
 name = "pyglide"
-version = "0.0.06"
+version = "0.0.07"
 authors = [
   { name="B7M", email="ibsnetwork001@gmail.com" },
 ]
@@ -42,7 +42,7 @@ pyglide = "pyglide.__main__:main"
 
 
 [tool.bumpver]
-current_version = "0.0.06"
+current_version = "0.0.07"
 version_pattern = "MAJOR.MINOR.PATCH[PYTAGNUM]"
 commit_message = "bump version {old_version} -> {new_version}"
 commit = true
