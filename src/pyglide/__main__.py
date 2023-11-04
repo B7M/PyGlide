@@ -48,21 +48,21 @@ def main():
         source_file = os.path.join(examples_dir,index+'_pyglide.html')
         destination_folder = "./output"
         if not mute:
-            _files = os.listdir(destination_folder)
-            for f in _files:
-                item=os.path.join(destination_folder, f)
-                print(item)
-                if os.path.isfile(item):
-                    os.remove(item)
-                elif os.path.isdir(item):
-                    shutil.rmtree(item)
-            if os.path.exists(os.path.join(examples_dir, 'slides_audios')):
-                shutil.move(os.path.join(examples_dir, 'slides_audios'), destination_folder)
+            if os.path.exists(os.path.join(examples_dir, index.split("_tmp")[0]+'_slides_audios')):
+                if os.path.exists(os.path.join(destination_folder, 'slides_audios')):
+                    shutil.rmtree(os.path.join(destination_folder, 'slides_audios'))
+                shutil.move(os.path.join(index.split("_tmp")[0]+'_slides_audios'), destination_folder)
         
         os.remove(index+".slides.html")
-        shutil.move(source_file, destination_folder)
+        if os.path.isfile(destination_folder+'/'+index+'_pyglide.html'):
+            shutil.copy2(source_file, destination_folder)
+            os.remove(index+'_pyglide.html')
+        else:
+            shutil.move(source_file, destination_folder)
+            
         if index=="original_example":
-            shutil.move("original_example.ipynb",destination_folder)
+            shutil.copy2("original_example.ipynb",destination_folder)
+            os.remove("original_example.ipynb")
         else:
             os.remove(index+".ipynb")
     
