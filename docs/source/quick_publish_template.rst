@@ -1,5 +1,5 @@
 Github template 
-===============
+================
 
 If you want to use the default settings of PyGlide and automatically host your documentation on Github Pages, you can use this `template <https://github.com/B7M/PyGlide_Actions>`_.
 

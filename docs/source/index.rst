@@ -17,5 +17,5 @@ Contents
 
    customize
    notebook preparation 
-   quick publish with the template
+   quick_publish_template
    
