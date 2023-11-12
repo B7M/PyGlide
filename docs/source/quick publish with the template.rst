@@ -13,8 +13,7 @@ Open the `template <https://github.com/B7M/PyGlide_Actions>`_ page and follow th
 
 #. Scroll down to the bottom of the "GitHub Pages" section and check the box that says "Enforce HTTPS." This ensures secure access to your interactive HTML presentations.
 
-Now that your repository is set up!
-Push your prepared notebooks to the repository on GitHub. GitHub Pages will automatically generate the interactive HTML presentation for you in the Course_link file. To access it, click on the links. Now, you can share this link with others to allow them to interact with your data-driven presentation.
+Now that your repository is set up, you can start adding your notebooks to the repository. GitHub Pages will automatically generate the interactive HTML presentation for you in the Course_link file. To access it, click on the links. Now, you can share this link with others to allow them to interact with your data-driven presentation.
 
 .. note::
     Make meaningful modification to the README.md file to reflect your project or presentation. You can also add a license to your repository by clicking on the "Add a license" button in the "About" section of the repository.
