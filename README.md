@@ -1,4 +1,6 @@
-# PyGlide Documentation
+# PyGlide 
+
+Read the updated documentation [here!](https://pyglide.readthedocs.io/en/latest/)
 
 ## Introduction
 
@@ -57,7 +59,7 @@ Preparation:
 - Open a Jupyter notebook in Jupyter Lab or Jupyter Notebook.
 - Add a markdown cell at the top of the notebook.
 - Use level 1 heading to specify the title of the presentation and level 2 heading to specify the author and additional information.
-- Make sure each cell is labeled with the write Slide Type (e.g. Slide, Sub-Slide, Fragment, Skip, Notes, etc.). This step is very important as it will determine the slides and the audio files that will be generated.
+- Make sure each cell is labeled with the right Slide Type (e.g. Slide, Sub-Slide, Fragment, Skip, Notes, etc.). This step is very important as it will determine the slides and the audio files that will be generated.
 - While preparing the slides you may wish to receive input from the user. PyGlide allows you to receive input from the user as simple text or as executable code.
 To do so, you should use `<div><!--Course_Text--></div>` in any slides you want to receive simple text. This HTML line will not be visible in the output slides. It will be server as a target for PyGlide. Similarly, to receive executable code, you can use `<div><!--Course_Code--></div>` in any slides you want to receive executable code. The package will automatically convert the input cells into interactive cells in the output slides.
 
