@@ -4,7 +4,9 @@ GitHub template
 If you want to use the default settings of PyGlide and automatically host your documentation on Github Pages, you can use this `template <https://github.com/B7M/PyGlide_Actions>`_.
 
 Open the `template <https://github.com/B7M/PyGlide_Actions>`_ page and follow these steps:
+
 #. Click the "Use this template" button located at the top right of the repository page.
+
 #. Give your new repository a name that reflects your project or presentation. You can also provide a brief description if you'd like
 
 #. Click the "Create repository from template" button to generate your new repository.
