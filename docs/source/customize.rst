@@ -15,6 +15,7 @@ To use PyGlide on your personal computer, first install it using pip:
 Check installation
 ------------------
 To check that PyGlide is installed correctly, run the following command:
+
 .. code-block:: console
 
    (.venv) $ pyglide
@@ -55,19 +56,12 @@ Import the Gen class from the package:
 
 .. code-block:: python
 
-    import pyglide
+    import pyglide # you can also use: from pyglide import *
 
-or
 
-.. code-block:: python
-   from pyglide import *
-
-Create an instance of the PyGlide, and pass the notebook file to the generator
-
-.. code-block:: python
-   generator = pyglide.Gen
-   notebook_file = "path/to/your/notebook.ipynb"
-   generator(notebook_file)
+    generator = pyglide.Gen   
+    notebook_file = "path/to/your/notebook.ipynb"
+    generator(notebook_file)
 
 Host the notebooks
 ------------------
